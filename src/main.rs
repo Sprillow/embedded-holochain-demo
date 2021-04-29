@@ -16,7 +16,7 @@ use tracing::*;
 const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
 
 #[derive(Debug, StructOpt)]
-#[structopt(name = "embedded-holochain", about = "an embedded holochain dna runner")]
+#[structopt(name = "embedded-holochain-demo", about = "demo of an embedded holochain app & dna runner")]
 struct Opt {
     #[structopt(default_value = "my_app_id")]
     app_id: String,
@@ -57,6 +57,7 @@ async fn async_main() {
     let conductor =
         conductor_handle(opt.admin_ws_port, &opt.datastore_path, &opt.keystore_path).await;
     let _ = install_or_passthrough(&conductor, opt.app_id, opt.app_ws_port).await;
+    println!("EMBEDDED_HOLOCHAIN_IS_READY");
     // Await on the main JoinHandle, keeping the process alive until all
     // Conductor activity has ceased
     let result = conductor
