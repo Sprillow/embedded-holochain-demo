@@ -1,0 +1,8 @@
+---
+manifest_version: "1"
+name: sample
+uid: "0001"
+properties: ~
+zomes: 
+  - name: sample
+    bundled: target/wasm32-unknown-unknown/release/sample.wasm

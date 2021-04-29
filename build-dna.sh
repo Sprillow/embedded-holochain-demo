@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd dna/cmdchat
+cd dna/sample
 cargo build --release --target wasm32-unknown-unknown
-cd ..
-dna-util -c cmdchat.dna.workdir
-cd ..
+hc dna pack .
+cd ../..
