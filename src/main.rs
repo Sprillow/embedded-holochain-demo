@@ -26,6 +26,9 @@ struct Opt {
 
     #[structopt(default_value = "keystore")]
     keystore_path: String,
+
+    #[structopt(default_value = "kitsune-proxy://SYVd4CF3BdJ4DS7KwLLgeU3_DbHoZ34Y-qroZ79DOs8/kitsune-quic/h/165.22.32.11/p/5779/--")]
+    proxy_url: String,
 }
 
 fn main() {
@@ -39,5 +42,6 @@ fn main() {
         app_ws_port: opt.app_ws_port,
         datastore_path: opt.datastore_path,
         keystore_path: opt.keystore_path,
+        proxy_url: opt.proxy_url
     })
 }

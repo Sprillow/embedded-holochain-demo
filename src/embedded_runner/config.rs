@@ -9,6 +9,7 @@ pub fn conductor_config(
     admin_port: u16,
     databases_path: &str,
     keystore_path: &str,
+    proxy_url: &str
 ) -> ConductorConfig {
     // Build the conductor configuration
     let mut network_config = KitsuneP2pConfig::default();
@@ -20,7 +21,7 @@ pub fn conductor_config(
             override_port: None,
         }),
         proxy_config: ProxyConfig::RemoteProxyClient {
-          proxy_url: Url2::parse("kitsune-proxy://SYVd4CF3BdJ4DS7KwLLgeU3_DbHoZ34Y-qroZ79DOs8/kitsune-quic/h/165.22.32.11/p/5779/--")
+          proxy_url: Url2::parse(proxy_url)
         }
     });
     ConductorConfig {
