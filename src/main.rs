@@ -1,8 +1,8 @@
 mod embedded_runner;
 
-use structopt::StructOpt;
 #[allow(deprecated)]
 use holochain_types::prelude::CellNick;
+use structopt::StructOpt;
 
 const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
 
