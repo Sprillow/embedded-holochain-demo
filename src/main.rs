@@ -1,7 +1,4 @@
-mod embedded_runner;
-
-#[allow(deprecated)]
-use holochain_types::prelude::CellNick;
+use embedded_holochain_runner::*;
 use structopt::StructOpt;
 
 const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
@@ -33,9 +30,9 @@ struct Opt {
 
 fn main() {
     let opt = Opt::from_args();
-    #[allow(deprecated)]
-    let dnas: Vec<(Vec<u8>, CellNick)> = vec![(SAMPLE_DNA.into(), "sample".into())];
-    embedded_runner::async_main(embedded_runner::HcConfig {
+    // String is like "CellNick"-ish
+    let dnas: Vec<(Vec<u8>, String)> = vec![(SAMPLE_DNA.into(), "sample".into())];
+    async_main(HcConfig {
         app_id: opt.app_id,
         dnas,
         admin_ws_port: opt.admin_ws_port,

@@ -7,16 +7,14 @@ use holochain_keystore::KeystoreSenderExt;
 #[allow(deprecated)]
 use holochain_types::{
     app::InstalledAppId,
-    prelude::{CellNick, DnaBundle, InstalledCell},
+    prelude::{DnaBundle, InstalledCell},
 };
 use holochain_zome_types::CellId;
 
-// CellNick is deprecating soon
-#[allow(deprecated)]
 pub async fn install_app(
     conductor_handle: &ConductorHandle,
     app_id: InstalledAppId,
-    dnas: Vec<(Vec<u8>, CellNick)>,
+    dnas: Vec<(Vec<u8>, String)>,
 ) -> ConductorApiResult<()> {
     println!("Don't recognize you, so generating a new identity for you...");
     let agent_key = conductor_handle

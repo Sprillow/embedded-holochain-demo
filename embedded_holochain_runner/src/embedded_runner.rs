@@ -4,15 +4,13 @@ use holochain::conductor::{
 use holochain_p2p::kitsune_p2p::dependencies::kitsune_p2p_types::dependencies::observability::{
     self, Output,
 };
-#[allow(deprecated)]
-use holochain_types::{app::InstalledAppId, prelude::CellNick};
+use holochain_types::app::InstalledAppId;
 use std::path::Path;
 use tracing::*;
 
-#[allow(deprecated)]
 pub struct HcConfig {
     pub app_id: String,
-    pub dnas: Vec<(Vec<u8>, CellNick)>,
+    pub dnas: Vec<(Vec<u8>, String)>,
     pub admin_ws_port: u16,
     pub app_ws_port: u16,
     pub datastore_path: String,
@@ -88,7 +86,7 @@ async fn install_or_passthrough(
     conductor: &ConductorHandle,
     app_id: InstalledAppId,
     app_ws_port: u16,
-    dnas: Vec<(Vec<u8>, CellNick)>,
+    dnas: Vec<(Vec<u8>, String)>,
 ) -> ConductorApiResult<()> {
     #[allow(deprecated)]
     let cell_ids = conductor.list_cell_ids().await?;
