@@ -43,3 +43,21 @@ ARGS:
     <datastore-path>    configuration values for `app_id` and `app_ws_port` will be overridden if an existing
                         configuration is found at this path [default: databases]
 ```
+
+
+## Including a DNA in your binary
+
+We have a super simple DNA (that really does nothing) in the [dna/sample](./dna/sample) folder. It gets embedded in the binary by using this code in the main `src` folder:
+```rust
+const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
+```
+
+`include_bytes!` is a native to Rust macro to help include files as bytes in a binary.
+
+You can build the DNA file by running:
+
+```bash
+./build-dna.sh
+```
+
+It compiles your Rust "zome" code to WASM, then zips it up in a file called `dna/sample/sample.dna`.
