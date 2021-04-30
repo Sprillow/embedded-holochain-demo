@@ -9,17 +9,17 @@ const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
     about = "demo of embedding holochain in a binary via embedded-holochain-runner"
 )]
 struct Opt {
+    #[structopt(default_value = "databases", help = "configuration values for `app_id` and `app_ws_port` will be overridden if an existing configuration is found at this path")]
+    datastore_path: String,
+
     #[structopt(long, default_value = "my_app_id")]
     app_id: String,
-
-    #[structopt(long, default_value = "1234")]
-    admin_ws_port: u16,
 
     #[structopt(long, default_value = "8888")]
     app_ws_port: u16,
 
-    #[structopt(long, default_value = "databases")]
-    datastore_path: String,
+    #[structopt(long, default_value = "1234")]
+    admin_ws_port: u16,
 
     #[structopt(long, default_value = "keystore")]
     keystore_path: String,
