@@ -1,5 +1,5 @@
 # Demo of using embedded-holochain-runner in a binary
-a demonstration of using holochain as a library, and then building a customized binary around that, specifically for your app
+a demonstration of using the [embedded-holochain-runner](https://github.com/Sprillow/embedded-holochain-runner) to run holochain, and then building a customized binary around that, specifically for your app
 
 Makes it very easy to shut down a single process, and restart that single process,
 and have the same admin websocket, app websocket, and only generate an agent key on first run.
