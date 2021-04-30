@@ -1,9 +1,8 @@
-# embedded holochain runner with pre-installed DNA
+# Demo of using embedded-holochain-runner in a binary
 a demonstration of using holochain as a library, and then building a customized binary around that, specifically for your app
 
 Makes it very easy to shut down a single process, and restart that single process,
-and have the same admin websocket, app websocket, and only generate an agent key on
-first run.
+and have the same admin websocket, app websocket, and only generate an agent key on first run.
 
 ## Installing and running
 
@@ -18,13 +17,29 @@ cargo install --git https://github.com/Sprillow/embedded-holochain-demo
 ### Running
 Run the `--help` command to see the options first
 ```bash
-cd /a/directory/to/install/persist/and/run
-embedded-holochain-demo --help
+$ embedded-holochain-demo --help
 ```
 
-Press Ctrl-C to quit.
+```bash
+embedded-holochain-demo 0.0.1
+demo of embedding holochain in a binary via embedded-holochain-runner
 
-The first time you run it, it will create a folder called `databases` *inside* of the folder from which you started the command, if it can. If that folder gets deleted, so does any data that has not been gossiped to peers, along with the ability to easily continue using the identity that you were previously using.
+USAGE:
+    embedded-holochain-demo [OPTIONS] [datastore-path]
 
-Next time you want to use it, make sure you `cd` into the same directory
-as you initialized in, otherwise a new identity will be issued and new `databases` folder created.
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+        --admin-ws-port <admin-ws-port>     [default: 1234]
+        --app-id <app-id>                   [default: my_app_id]
+        --app-ws-port <app-ws-port>         [default: 8888]
+        --keystore-path <keystore-path>     [default: keystore]
+        --proxy-url <proxy-url>             [default: kitsune-proxy://SYVd4CF3BdJ4DS7KwLLgeU3_DbHoZ34Y-
+                                           qroZ79DOs8/kitsune-quic/h/165.22.32.11/p/5779/--]
+
+ARGS:
+    <datastore-path>    configuration values for `app_id` and `app_ws_port` will be overridden if an existing
+                        configuration is found at this path [default: databases]
+```
