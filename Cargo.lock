@@ -1008,7 +1008,8 @@ dependencies = [
 
 [[package]]
 name = "embedded_holochain_runner"
-version = "0.1.0"
+version = "0.0.1"
+source = "git+https://github.com/Sprillow/embedded-holochain-runner.git#7e674f640973c4d066c0d97e58384924d7cedf80"
 dependencies = [
  "futures",
  "hdk",

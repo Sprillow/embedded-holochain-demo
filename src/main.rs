@@ -6,25 +6,28 @@ const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
 #[derive(Debug, StructOpt)]
 #[structopt(
     name = "embedded-holochain-demo",
-    about = "demo of an embedded holochain app & dna runner"
+    about = "demo of embedding holochain in a binary via embedded-holochain-runner"
 )]
 struct Opt {
-    #[structopt(default_value = "my_app_id")]
+    #[structopt(long, default_value = "my_app_id")]
     app_id: String,
 
-    #[structopt(default_value = "1234")]
+    #[structopt(long, default_value = "1234")]
     admin_ws_port: u16,
 
-    #[structopt(default_value = "8888")]
+    #[structopt(long, default_value = "8888")]
     app_ws_port: u16,
 
-    #[structopt(default_value = "databases")]
+    #[structopt(long, default_value = "databases")]
     datastore_path: String,
 
-    #[structopt(default_value = "keystore")]
+    #[structopt(long, default_value = "keystore")]
     keystore_path: String,
 
-    #[structopt(default_value = "kitsune-proxy://SYVd4CF3BdJ4DS7KwLLgeU3_DbHoZ34Y-qroZ79DOs8/kitsune-quic/h/165.22.32.11/p/5779/--")]
+    #[structopt(
+        long,
+        default_value = "kitsune-proxy://SYVd4CF3BdJ4DS7KwLLgeU3_DbHoZ34Y-qroZ79DOs8/kitsune-quic/h/165.22.32.11/p/5779/--"
+    )]
     proxy_url: String,
 }
 
@@ -39,6 +42,6 @@ fn main() {
         app_ws_port: opt.app_ws_port,
         datastore_path: opt.datastore_path,
         keystore_path: opt.keystore_path,
-        proxy_url: opt.proxy_url
+        proxy_url: opt.proxy_url,
     })
 }
