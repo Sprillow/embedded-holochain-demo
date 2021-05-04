@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 structopt = "0.3.11"
-embedded_holochain_runner = { git = "https://github.com/Sprillow/embedded-holochain-runner.git" }
+embedded_holochain_runner = { git = "https://github.com/Sprillow/embedded-holochain-runner.git", rev = "752d5dc" }
 
 [patch.crates-io]
 rkv = { git = "https://github.com/holochain/rkv.git", branch = "master" }

@@ -9,7 +9,10 @@ const SAMPLE_DNA: &'static [u8] = include_bytes!("../dna/sample/sample.dna");
     about = "demo of embedding holochain in a binary via embedded-holochain-runner"
 )]
 struct Opt {
-    #[structopt(default_value = "databases", help = "configuration values for `app_id` and `app_ws_port` will be overridden if an existing configuration is found at this path")]
+    #[structopt(
+        default_value = "databases",
+        help = "configuration values for `app_id` and `app_ws_port` will be overridden if an existing configuration is found at this path"
+    )]
     datastore_path: String,
 
     #[structopt(long, default_value = "my_app_id")]
@@ -35,7 +38,7 @@ fn main() {
     let opt = Opt::from_args();
     // String is like "CellNick"-ish
     let dnas: Vec<(Vec<u8>, String)> = vec![(SAMPLE_DNA.into(), "sample".into())];
-    async_main(HcConfig {
+    blocking_main(HcConfig {
         app_id: opt.app_id,
         dnas,
         admin_ws_port: opt.admin_ws_port,
@@ -43,5 +46,6 @@ fn main() {
         datastore_path: opt.datastore_path,
         keystore_path: opt.keystore_path,
         proxy_url: opt.proxy_url,
+        event_channel: None,
     })
 }
