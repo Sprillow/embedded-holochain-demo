@@ -63,3 +63,9 @@ You can build the DNA file by running:
 ```
 
 It compiles your Rust "zome" code to WASM, then zips it up in a file called `dna/sample/sample.dna`.
+
+## Holochain Version
+
+The `rev` in [dna/sample/Cargo.toml](dna/sample/Cargo.toml) should match the one in [embedded-holochain-runner](https://github.com/Sprillow/embedded-holochain-runner#holochain-version), it is currently:
+
+Currently bundles Holochain version: [bdb9c55d504135df39ccb1c75896557a788d0ac0 (June 25, 2021)](https://github.com/holochain/holochain/commit/bdb9c55d504135df39ccb1c75896557a788d0ac0).

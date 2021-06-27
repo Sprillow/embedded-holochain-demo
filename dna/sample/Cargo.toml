@@ -9,7 +9,7 @@ edition = "2018"
 [dependencies]
 # use whatever hdk uses
 serde = "*"
-hdk = {git = "https://github.com/holochain/holochain.git", rev = "a6ac0439670ba367c723a80d3b8bc7c419aa5f6e", package = "hdk"}
+hdk = {git = "https://github.com/holochain/holochain.git", rev = "bdb9c55d504135df39ccb1c75896557a788d0ac0", package = "hdk"}
 derive_more = "0.99.9"
 
 [lib]

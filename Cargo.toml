@@ -1,14 +1,14 @@
 [package]
 name = "embedded-holochain-demo"
 version = "0.0.1"
-authors = ["Connor Turland <connorturland@gmail.com>"]
+authors = ["Connor Turland <connor@sprillow.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 structopt = "0.3.11"
-embedded_holochain_runner = { git = "https://github.com/Sprillow/embedded-holochain-runner.git", rev = "752d5dc" }
+embedded_holochain_runner = { git = "https://github.com/Sprillow/embedded-holochain-runner.git", rev = "5a9aecf6695a8cfab47f06b3eb0d70bccbe10259" }
 
 [patch.crates-io]
 rkv = { git = "https://github.com/holochain/rkv.git", branch = "master" }
